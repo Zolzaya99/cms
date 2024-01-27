@@ -1,0 +1,9 @@
+.contact-item {
+    border : 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-image {
+    border-radius: 10px;
+    width: 8rem;
+}
