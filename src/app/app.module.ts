@@ -33,11 +33,10 @@ import { MessageListComponent } from './messages/message-list/message-list.compo
     MessageItemComponent,
     MessageEditComponent,
     MessageListComponent
-
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
