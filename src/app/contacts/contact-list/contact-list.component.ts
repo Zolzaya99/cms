@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -11,14 +10,14 @@ import { ContactService } from '../contact.service';
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
   
-  onSelected(contact:Contact) {
-    this.contactService.contactSelectedEvent.emit(contact);
-  }
   constructor(private contactService: ContactService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.contacts = this.contactService.getContacts();
+
+    this.contactService.contactChangedEvent.subscribe((contacts: Contact[]) => {
+
+      this.contacts = contacts;
+    });
   }
-
 }
-

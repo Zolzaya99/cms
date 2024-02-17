@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-document-edit',
   templateUrl: './document-edit.component.html',
-  styleUrl: './document-edit.component.css'
+  styleUrls: ['./document-edit.component.css']
 })
-export class DocumentEditComponent {
+export class DocumentEditComponent implements OnInit {
+  documentId: string;
 
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.documentId = params['id'];
+    });
+  }
 }
