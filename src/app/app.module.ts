@@ -46,7 +46,7 @@ import { DndModule } from 'ng2-dnd';
     FormsModule,
     AppRoutingModule, 
     ReactiveFormsModule, 
-    DndModule.forRoot()
+    DndModule.forRoot(),
    ],
   providers: [],
   bootstrap: [AppComponent]

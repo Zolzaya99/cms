@@ -3,12 +3,12 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+
 @Component({
   selector: 'app-contact-edit',
   templateUrl: './contact-edit.component.html',
-  styleUrl: './contact-edit.component.css'
+  styleUrls: ['./contact-edit.component.css'],
 })
-
 export class ContactEditComponent implements OnInit {
   originalContact: Contact;
   contact: Contact;
@@ -40,7 +40,7 @@ export class ContactEditComponent implements OnInit {
       }
     });
   }
-  
+
   onSubmit(form: NgForm) {
     let value = form.value;
     let newContact = new Contact(
@@ -63,7 +63,6 @@ export class ContactEditComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  
   addToGroup($event: any) {
     const selectedContact: Contact = $event.dragData;
     if (this.isInvalidContact(selectedContact)) return;
@@ -81,4 +80,3 @@ export class ContactEditComponent implements OnInit {
     this.groupContacts.splice(index, 1);
   }
 }
-

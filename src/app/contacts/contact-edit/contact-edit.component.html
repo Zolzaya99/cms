@@ -29,15 +29,16 @@
               class="form-control required"
               size="120"
               max="255"
+              required
               #email="ngModel"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-              required
             />
           </div>
-          <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
-              Enter a valid Email address. 
-            </div>
         </div>
+        <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+          Please enter a valid email address.
+        </div>
+  
         <div class="row">
           <div class="col-sm-12 form-group">
             <label for="phone">Phone:</label>
@@ -55,7 +56,7 @@
           </div>
         </div>
         <div class="alert alert-danger" *ngIf="!phone.valid && phone.touched">
-          Enter a valid phone number.
+          Please enter a valid phone number.
         </div>
   
         <div class="row">
