@@ -79,4 +79,6 @@ export class ContactEditComponent implements OnInit {
     if (index < 0 || index >= this.groupContacts.length) return;
     this.groupContacts.splice(index, 1);
   }
+  
+ 
 }

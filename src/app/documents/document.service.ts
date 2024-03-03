@@ -7,12 +7,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DocumentService {
-  // startedEditing = new Subject<number>();
-  maxDocumentId: number;
   documentListChangedEvent = new Subject<Document[]>();
   documentSelectedEvent = new EventEmitter<Document>();
-  documentChangedEvent = new EventEmitter<Document[]>();
+  
   private documents: Document [] = [];
+  private maxDocumentId: number;
+
 
   constructor() {
     this.documents = MOCKDOCUMENTS;
@@ -24,7 +24,7 @@ export class DocumentService {
   }
 
   getDocument(id: string): Document {
-    return this.documents.find((c) => c.id === id);
+    return this.documents.find((d) => d.id === id);
    } 
    
   // add
@@ -32,12 +32,11 @@ export class DocumentService {
    if(!newDocument) {
         return;
     }
-
    this.maxDocumentId++;
    newDocument.id = this.maxDocumentId.toString();
    this.documents.push(newDocument);
-   const documentsListClone = this.documents.slice();
-   this.documentListChangedEvent.next(documentsListClone);
+  //  const documentsListClone = this.documents.slice();
+   this.documentListChangedEvent.next(this.documents.slice());
 }
 
 // update
@@ -65,20 +64,17 @@ export class DocumentService {
       return;
   }
   this.documents.splice(pos, 1)
-  const documentsListClone = this.documents.slice()
-  this.documentChangedEvent.next(documentsListClone);
+  // const documentsListClone = this.documents.slice()
+  // this.documentListChangedEvent.next(documentsListClone);
+  this.documentListChangedEvent.next(this.documents.slice());
+
 }
 
   getMaxId(): number {
     let maxId = 0; 
-
-    for (const document of this.documents) {
-        const currentId = Number(document.id); 
-        if (!isNaN(currentId) && currentId > maxId) { 
-            maxId = currentId; 
-        }
-    }
-
+    this.documents.forEach((d) => {
+      if (+d.id > maxId) maxId = +d.id;
+    });
     return maxId;
   }
 
