@@ -21,6 +21,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     FormsModule,
     AppRoutingModule, 
     ReactiveFormsModule,
+    DragDropModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

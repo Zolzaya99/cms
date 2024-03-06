@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-contact-edit',
@@ -79,6 +80,13 @@ export class ContactEditComponent implements OnInit {
     if (index < 0 || index >= this.groupContacts.length) return;
     this.groupContacts.splice(index, 1);
   }
-  
- 
+
+  onDrop(event: CdkDragDrop<Contact[]>) {
+    if (event.previousContainer !== event.container) {
+    const contactCopy = { ...event.item.data };
+    this.groupContacts.push(contactCopy);
+    }
+    }
+    
+
 }
