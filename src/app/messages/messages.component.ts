@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Message } from './message.model';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-messages',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './messages.component.css'
 })
 export class MessagesComponent {
+  selectedMessage: Message;
+  constructor(private messageService: MessageService) { }
 
+  ngOnInit() {
+    this.messageService.messageChangedEvent
+    .subscribe(
+      (message: Message) => {
+        this.selectedMessage = message;
+      }
+    );
+  }
 }
