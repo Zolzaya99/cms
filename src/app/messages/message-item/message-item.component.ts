@@ -19,3 +19,14 @@ export class MessageItemComponent implements OnInit {
      this.messageSender = contact.name;
   }
 }
+
+// ngOnInit() {
+//   const contact: Contact = this.contactService.getContact(this.message.sender);
+//   if (contact) {
+//     this.messageSender = contact.name;
+//   }
+//   else {
+//     this.router.navigate(['/messages']);
+//   }
+// }
+
