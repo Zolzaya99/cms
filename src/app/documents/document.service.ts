@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Document } from './document.model';
 
 @Injectable({
@@ -11,8 +10,7 @@ export class DocumentService {
   documentSelectedEvent = new EventEmitter<Document>();
   documentListChangedEvent = new Subject<Document[]>();
 
-  private documentsUrl =
-    'http://localhost:3000/documents';
+  private documentsUrl = 'http://localhost:3000/documents';
   private documents: Document[] = [];
   private maxDocumentId: number;
 

@@ -50,14 +50,19 @@ app.use('/documents', documentsRoutes);
 // Default route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './dist/cms/browser/index.html'));
+  console.log("server connected")
 });
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+// mongoose.connect(process.env.MONGO_URI)
+//   .then(() => console.log('Connected to MongoDB'))
+//   .catch(err => console.error('Error connecting to MongoDB:', err));
+
+mongoose.connect("mongodb+srv://oyu20001:Zoloo0527!@cluster-cms.loezzvq.mongodb.net/cms?retryWrites=true&w=majority&appName=Cluster-cms")
+// Define port)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Define port
 const port = process.env.PORT || '3000';
 app.set('port', port);
 

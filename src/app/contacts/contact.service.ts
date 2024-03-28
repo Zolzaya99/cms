@@ -13,7 +13,7 @@ export class ContactService {
   contactListChangedEvent = new Subject<Contact[]>();
 
   private contactsUrl = 
-  'https://cms-database-789bb-default-rtdb.firebaseio.com/contacts.json';
+  'https://localhost:3000/contacts';
   private contacts: Contact[] = [];
   private maxContactId: number;
 

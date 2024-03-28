@@ -13,7 +13,7 @@ export class MessageService {
   messageListChangedEvent = new Subject<Message[]>();
 
   private messagesUrl =
-    'https://cms-database-789bb-default-rtdb.firebaseio.com/messages.json';
+    'https://localhost:3000/messages';
   private messages: Message[] = [];
   private maxMessageId: number;
 
